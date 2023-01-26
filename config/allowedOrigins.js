@@ -1,6 +1,6 @@
 const allowedOrigins = [
-    'http://localhost:3500',
-    'http://localhost:3000'
+    'https://openlake-rr6xf.ondigitalocean.app/openlake-api/',
+    'https://openlake-rr6xf.ondigitalocean.app'
 ]
 
 module.exports = allowedOrigins

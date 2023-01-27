@@ -2,6 +2,7 @@ const User = require('../models/User')
 const asyncHandler = require('express-async-handler')
 const bcrypt = require('bcrypt')
 const Profile = require('../models/Profile')
+const { body } = require('express-validator')
 
 //@desc Get all users
 //@route GET /users

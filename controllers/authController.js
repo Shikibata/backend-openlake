@@ -30,22 +30,24 @@ const login = asyncHandler(async (req,res) => {
 
     if (!match) return res.status(401).json({message: 'Unauthorized'})
 
+    console.log(foundUser.email, foundUser._id, foundUser.role)
+
     const accessToken = jwt.sign(
         {
             "UserInfo": {
-                "email": foundUser.email,
                 "profile_id": foundProfile._id,
-                "id": foundUser._id
+                "id": foundUser._id,
+                "role": foundUser.role || "user"
             }
         },
         process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: "1m" }
+        { expiresIn: "15m" }
     )
 
     const refreshToken = jwt.sign(
-        { "id": foundUser.username, "profile_id": foundProfile._id},
+        { "UserInfo": {"id": foundUser._id, "profile_id": foundProfile._id, "role": foundUser.role || "user"}},
         process.env.REFRESH_TOKEN_SECRET,
-        { expiresIn: '1d' }
+        { expiresIn: '7d' }
     )
 
     //create a secure cookie with refresh token
@@ -89,13 +91,13 @@ const refresh = (req,res) => {
             const accessToken = jwt.sign(
                 {
                     "UserInfo": {
-                        "email": foundUser.email,
                         "profile_id": foundProfile._id,
-                        "id": foundUser._id
+                        "id": foundUser._id,
+                        "role": foundUser.role || "user"
                     }
                 },
                 process.env.ACCESS_TOKEN_SECRET,
-                { expiresIn: "1m" }
+                { expiresIn: "15m" }
             )
 
             res.json({ accessToken })

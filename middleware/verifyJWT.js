@@ -5,7 +5,7 @@ const jwt_decode = require('jwt-decode')
 const verifyJWT = (req,res,next) => {
     const authHeader = req.headers.authorization 
 
-    if(!authHeader?.startsWith('Bearer ')) {
+    if(!authHeader) {
         return res.status(401).json({ message: 'Unauthorized' })
     }
 
@@ -26,7 +26,8 @@ const verifyJWT = (req,res,next) => {
 const verifyJWTAdmin = (req,res,next) => {
     const authHeader = req.headers.authorization
 
-    if(!authHeader?.startsWith('Bearer ')) {
+
+    if(!authHeader) {
         return res.status(401).json({ message: 'Unauthorized' })
     }
 

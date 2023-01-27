@@ -1,0 +1,6 @@
+20230127	11:36:48	4e2c9b2d-d390-4601-94f2-77419c431f89	Error: ENOENT: no such file or directory, stat '/Users/maximeh/Desktop/dev/openlake-api/views/index.html'	GET	/	undefined
+20230127	11:36:48	b864f19b-e854-452e-a1d1-0691e72185f8	Error: ENOENT: no such file or directory, stat '/Users/maximeh/Desktop/dev/openlake-api/views/404.html'	GET	/favicon.ico	undefined
+20230127	11:36:56	faaa29e3-a1bf-42be-b895-8be94a5bfc51	TypeError: Cannot read properties of undefined (reading 'split')	GET	/users	undefined
+20230127	11:37:37	babf1eaf-7010-408d-835d-be9005d5f9c3	TypeError: Cannot read properties of undefined (reading 'split')	GET	/users	undefined
+20230127	11:38:39	de33e321-2144-4da9-921d-376d6756480f	TypeError: authHeader.split is not a function	GET	/users	undefined
+20230127	11:43:42	8ee28515-4746-4697-805c-34f5019a4a8c	TypeError: authHeader.split is not a function	GET	/users	undefined

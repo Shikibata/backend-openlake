@@ -3,13 +3,14 @@ const jwt_decode = require('jwt-decode')
 
 
 const verifyJWT = (req,res,next) => {
-    const authHeader = req.headers.authorization 
+    const authHeader = req.headers.cookie
+
 
     if(!authHeader) {
         return res.status(401).json({ message: 'Unauthorized' })
     }
 
-    const token = authHeader.split(' ')[1]
+    const token = authHeader.slice(0, 4)
 
     jwt.verify(
         token,
@@ -24,14 +25,18 @@ const verifyJWT = (req,res,next) => {
 }
 
 const verifyJWTAdmin = (req,res,next) => {
-    const authHeader = req.headers.authorization
+    const authHeader = req.headers.cookie
+
+    console.log(req.headers.cookie)
 
 
     if(!authHeader) {
         return res.status(401).json({ message: 'Unauthorized' })
     }
 
-    const token = authHeader.split(' ')[1]
+    const token = authHeader.slice(0, 4)
+
+    console.log(token)
 
     const decoding = jwt_decode(token)
     console.log(decoding)

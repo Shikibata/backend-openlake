@@ -51,7 +51,7 @@ const login = asyncHandler(async (req,res) => {
     )
 
     //create a secure cookie with refresh token
-    res.cookie('jwt', refreshToken, {
+    res.cookie('openlake', refreshToken, {
         httpOnly: true,
         secure: true,
         sameSite: 'None', 
